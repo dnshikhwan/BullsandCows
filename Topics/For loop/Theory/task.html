@@ -1,0 +1,67 @@
+<div class="step-text">
+<p>Sometimes we need to repeat a block of code a certain number of times. To do this, Java provides the <code class="language-java">for</code> loop. This loop is often used to iterate over a range of values or through an array. If the number of iterations or the range borders are known, it is recommended to use the <code class="language-java">for</code> loop. If they are unknown, the <code class="language-java">while</code> loop may be the preferable solution.</p>
+<h5 id="the-basic-syntax">The basic syntax</h5>
+<p>The <code class="language-java">for</code> loop has the following basic <a class="theory-lookup not-relevant" href="/learn/step/3505" rel="noopener noreferrer nofollow" target="_blank" title="In Java, syntax refers to a set of rules that define how a program needs to be written in order to be valid. | It includes the order of components, such as statements written from top to bottom in a sequential manner, and the use of specific symbols, such as semicolons to terminate a statement. Java has its own specific syntax, which includes the use of keywords, identifiers, literals, operators, and separators. These tokens must adhere to the specific rules of the Java syntax and are separated by whitespace.">syntax</a>:</p>
+<pre><code class="language-java">for (initialization; condition; modification) {
+    // do something
+} </code></pre>
+<p>Parts of the loop:</p>
+<ul><li><p>the <strong><a class="theory-lookup not-relevant" href="/learn/step/3505" rel="noopener noreferrer nofollow" target="_blank" title="In Java, an initialization statement refers to the process of assigning a value to a variable or an object during its creation. | This can be done directly, such as assigning a value to a field, or through more complex logic in an instance initialization block. The instance initialization block is a section of code enclosed in braces that is executed before any constructor of a class, allowing for the execution of code before a constructor is invoked. This is important for properly setting up objects before they are used in a program.">initialization statement</a></strong> is executed once before the loop begins; usually, loop variables are initialized here;</p></li><li><p>the <strong>condition</strong> is a Boolean expression that determines the need for the next iteration; if it's <code class="language-java">false</code>, the loop terminates;</p></li><li><p>the <strong>modification </strong>is a statement that changes the value of the loop <a class="theory-lookup not-relevant" href="/learn/step/3505" rel="noopener noreferrer nofollow" target="_blank" title="In Java, a variable is a named storage location that is used to store a value of a specific type. | It is declared with a specific data type, which determines the kind of value that can be stored in it. Every variable has a unique name, also known as an identifier, which is used to access its value. Variables can be declared and initialized in a single statement, and their value can be accessed and modified using the name. It's important to note that variables can be changed, meaning you can assign a new value to a variable without having to declare it again.">variables</a>; it is invoked after each iteration of the loop; usually, it uses <strong>increment or decrement</strong> to modify the loop's variable.</p></li></ul>
+<p>Inside the loop's body, the program can perform any correct Java statements. It can even contain other loops.</p>
+<p>The order of execution for any <code class="language-java">for</code> loop is always the same:</p>
+<ol><li><p>the initialization statement;</p></li><li><p>if the condition is <code class="language-java">false</code> then terminate the loop;</p></li><li><p>if the condition is <code class="language-java">true</code>, then the loop's body is executed;</p></li><li><p>the modification is performed;</p></li><li><p>go to stage 2 (condition).</p></li></ol>
+<p>Let's write a loop for printing integer numbers from 0 to 9 on the same line.</p>
+<pre><code class="language-java">int n = 9;
+for (int i = 0; i &lt;= n; i++) {
+    System.out.print(i + " "); // here, a space is used to separate numbers
+}</code></pre>
+<p>The code displays:</p>
+<pre><code class="language-java">0 1 2 3 4 5 6 7 8 9 </code></pre>
+<p>The variables <a class="theory-lookup not-relevant" href="/learn/step/3505" rel="noopener noreferrer nofollow" target="_blank" title="In Java, a declaration is a statement that introduces a variable, method, or class into the program. | It specifies the type of the entity being declared, its name, and other relevant information such as access modifier, return type (for method), and initial value (for variable). For example, the declaration of a method may include its name, return type, access modifier, and parameter list. Declarations are essential for Java to understand the structure and behavior of the program. Incorrect declarations can lead to compilation errors. In the context of variables, a declaration specifies the type, name, and initial value of a variable. The type of a variable determines what possible operations can be performed on the variable and which value can be stored in it. Every variable has a name (also known as an identifier) to distinguish it from others. Before using a variable, it must be declared. The general form of a variable declaration is: `type identifier = value;`
+
+It's important to note that a declaration is not the same as an assignment.">declared</a> in the initialization statement are visible only inside the scope that includes all parts of the loop: the condition, the body, and the modification. The integer loop variables are often named <code class="language-java">i</code>, <code class="language-java">j</code>, <code class="language-java">k</code>, or <code class="language-java">index</code>.</p>
+<p>Here’s another example. Let's calculate the sum of the integer numbers from 1 to 10 (inclusive) using the <code class="language-java">for</code> loop.</p>
+<pre><code class="language-java">int startIncl = 1, endExcl = 11;
+
+int sum = 0;
+for (int i = startIncl; i &lt; endExcl; i++) {
+    sum += i;
+}
+
+System.out.println(sum); // it prints "55"</code></pre>
+<h5 id="skipping-parts">Skipping parts</h5>
+<p>The initialization statement, the condition, and the modification parts are optional, the <code class="language-java">for</code> loop might not have all of them.</p>
+<p>It is possible to declare a variable outside the loop:</p>
+<p></p>
+<pre><code class="language-java">int i = 10;
+for (; i &gt; 0; i--) {
+    System.out.print(i + " ");
+}</code></pre>
+<p>Moreover, it is also possible to write an infinite loop without these parts at all:</p>
+<pre><code class="language-java">for (;;) {
+    // do something
+}</code></pre>
+<h5 id="nested-loops">Nested loops</h5>
+<p>It's possible to nest one <code class="language-java">for</code> loop in another <code class="language-java">for</code> loop. This approach is used to process multidimensional structures like tables (matrices), data cubes, and so on.</p>
+<p></p>
+<p>As an example, the following code prints the multiplication table of numbers from 1 to 9 (inclusive).</p>
+<p></p>
+<pre><code class="language-java">for (int i = 1; i &lt; 10; i++) {
+    for (int j = 1; j &lt; 10; j++) {
+        System.out.print(i * j + "\t");
+    }
+    System.out.println();
+}</code></pre>
+<p></p>
+<p>It outputs:</p>
+<p></p>
+<pre><code class="language-java">1   2   3   4   5   6   7   8   9  
+2   4   6   8   10  12  14  16  18  
+3   6   9   12  15  18  21  24  27  
+4   8   12  16  20  24  28  32  36  
+5   10  15  20  25  30  35  40  45  
+6   12  18  24  30  36  42  48  54  
+7   14  21  28  35  42  49  56  63  
+8   16  24  32  40  48  56  64  72  
+9   18  27  36  45  54  63  72  81 </code></pre>
+</div>

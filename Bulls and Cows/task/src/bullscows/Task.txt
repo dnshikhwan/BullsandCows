@@ -1,0 +1,37 @@
+ * There are two players, first write a secret 4 digit code using different digits, second player has to guess it
+ * grades answer using bulls and cows as a notation
+ * if digits is correct and in position -> bull
+ * it digits is correct but position is wrong -> cow
+ * first player reveal how many bulls and cows there are
+ *
+ *
+ * features
+ * 1. print game log
+ *   - print player1 turn [x]
+ *   - print player2 turn [x]
+ * 2. games grade
+ *   - pre code the secret code [x]
+ *   - user enter input [x]
+ *   - output how many is bulls and cow and output the secret code [x]
+ * 3. generate the secret code [x]
+ *   - secret code length is not greater than 10 [x]
+    - digits must be unique [x]
+    - must contain from 1-9 [x]
+    - first digit cannot be 0 [x]
+  4. Combine the game [x]
+    - player need input the length of the secret code [x]
+    - games ended until number of bulls is equal to the number of digits in the code [x]
+    - congratulates winner [x]
+
+ 5. add new level
+    - add support for more than 10 symbols including letters too
+    - secret can contain numbers(0-9) and 26 lowercase Latin(a-z) (generateSecretCode) [x]
+    - new max length is 36 [x]
+    - ask users for number of possible symbols [x]
+    - secret code length is not greater than the number of possible symbols [x]
+
+ 6. Error handling
+    - handle incorrect input
+        - input length and number of possible symbols must be an integer [x]
+        - handle number of max code which is 36 [x]
+        - number of possible symbols must be greater or equals to len of code [x]
